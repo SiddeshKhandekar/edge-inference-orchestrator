@@ -55,7 +55,7 @@ def round_robin(jobs_list, quantum):
     queue = []
     uncompleted = sorted(jobs_list, key=lambda x: (x['arrival_time'], x['job_id']))
     remaining = {j['job_id']: j['burst_time'] for j in jobs_list}
-    current_time, switches, last_job = 0, 0, None
+    current_time, switches, last_job = 0, -1, None
     results = []
     
     def enqueue_arrived(time):
