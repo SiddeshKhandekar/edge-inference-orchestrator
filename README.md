@@ -3,7 +3,7 @@
 This repository encompasses a deterministic edge compute engine and a comprehensive enterprise Cloud-IoT deployment blueprint. Built as an OS Simulation and Cloud Architecture deployment modeling suite.
 
 Included inherently are:
-- `docs/architecture_blueprint.md` (Part 2 Cloud Design Document)
+- [docs/architecture_blueprint.md](docs/architecture_blueprint.md) (Part 2 Cloud Design Document)
 - The Python Compute Engine natively spanning Scheduling, Mutex synchronization, Deadlock modeling, and Memory translation boundaries.
 
 This project was built for the course I pursued from Masai in collaboration of IIT Mandi for the domain **Software Development 2.0** as the **Final Project**
