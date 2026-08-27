@@ -23,3 +23,32 @@ The deployment utilizes one primary Virtual Private Cloud (VPC) rigorously separ
 
 **Cross-Zone Enforcement Mechanism:**
 To enforce hard-bound protection preventing Zone-A's resources from being reached by Zone-B seamlessly, a strict **Network Access Control List (NACL)** rule is implemented directly upon the subnet boundaries. This is not arbitrary firewall processing—it serves as a persistent, stateless boundary check blocking arbitrary inbound/outbound packets explicitly originating from the opposing Zone's designated IP CIDR blocks *before* traffic reaches the host.
+
+---
+
+## 3. Network Security Controls (Task 11)
+
+*   **Protect Sensitive Data:** Employs **AES-256 encryption** with managed customer keys for persistent storage, natively protecting archived sensor telemetry logs at rest.
+*   **Authentication:** Enforces strict **mTLS (Mutual TLS)** using X.509 device certificates to systematically authenticate IoT zone controllers before they can connect to the MQTT broker.
+*   **Authorization:** Applies absolute zero-trust **IAM Roles and Policies** to strictly define which API routes an Edge node can uniquely trigger.
+*   **Prevent Cyber Attacks:** Leverages a robust **Web Application Firewall (WAF)** at the edge network boundary to automatically filter and block malicious DDoS traffic or SQL injection attempts against the central dashboard.
+*   **Secure Communication:** Encapsulates all in-flight network packets utilizing **TLS 1.3** to securely transmit the real-time public-safety telemetry without mid-stream exposure.
+*   **Ensure Availability:** Implements **Auto-Scaling Groups over Multi-AZ clusters** natively, assuring that if a primary cloud component crashes, a redundant instance immediately assumes the load without dropping critical alerts.
+
+---
+
+## 4. IAM & Data Protection (Task 12)
+
+**IAM Role Table:**
+
+| Role Name | Precision Permission Set |
+| :--- | :--- |
+| **Smart City Administrator** | Total wildcard access (`*`) to the overarching Cloud Dashboard APIs and global Edge Fleet deployment configurations. |
+| **Edge Zone Operator** | Scoped `WriteOnly` access strictly localized to publish sensor metrics and remotely execute the internal `schedulers.py` compute engine purely within their assigned isolated VPC Subnet limits. |
+| **Compliance Auditor** | Strict `ReadOnly` access uniquely targeting archiving buckets (S3) and historical telemetry logs to actively inspect platform regulatory health without code-mutation rights. |
+
+**Data Protection Matrix (Data States):**
+
+*   **At Rest:** Protected via **AWS KMS (AES-256)** encryption keys implicitly guarding the `JOBS` dataset and stationary zone-generated sensor logs sitting archived in the cloud storage buckets.
+*   **In Transit:** Protected via **TLS 1.3 (Perfect Forward Secrecy)** rigorously encrypting the live hypothetical Banker's Algorithm resource requests (e.g., `[2, 0, 2]`) transmitted between the isolated zone gateway and the dashboard backend.
+*   **In Use:** Protected via **Confidential Computing Enclaves (AWS Nitro)** that securely execute the rigorous `synchronization.py` race-condition OS mathematical computations inside fundamentally isolated, tamper-proof hardware RAM blocks.
