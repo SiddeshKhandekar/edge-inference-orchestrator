@@ -52,3 +52,32 @@ To enforce hard-bound protection preventing Zone-A's resources from being reache
 *   **At Rest:** Protected via **AWS KMS (AES-256)** encryption keys implicitly guarding the `JOBS` dataset and stationary zone-generated sensor logs sitting archived in the cloud storage buckets.
 *   **In Transit:** Protected via **TLS 1.3 (Perfect Forward Secrecy)** rigorously encrypting the live hypothetical Banker's Algorithm resource requests (e.g., `[2, 0, 2]`) transmitted between the isolated zone gateway and the dashboard backend.
 *   **In Use:** Protected via **Confidential Computing Enclaves (AWS Nitro)** that securely execute the rigorous `synchronization.py` race-condition OS mathematical computations inside fundamentally isolated, tamper-proof hardware RAM blocks.
+
+---
+
+## 5. IoT Connectivity & Layers (Task 13)
+
+**Sensor & Connectivity Mapping:**
+1.  **Traffic-Camera Triggers:** Utilizes **5G**. High bandwidth and ultra-low latency are strictly required to stream high-throughput visual trigger arrays instantly.
+2.  **Environmental Air-Quality Sensors:** Utilizes **LoRaWAN**. These sensors send tiny, infrequent byte-sized logs across a massively wide geographic city range while functioning natively on low-power batteries for years without maintenance.
+3.  **Wearable Public-Safety Badges (Police/Medical):** Utilizes **Bluetooth (BLE)**. It strictly requires continuous, extremely low-power pairing to a localized vehicle or smartphone hub for localized telemetry tracking.
+
+**IoT Architecture Stack Mapping:**
+*   **Physical Environment:** The physical city intersections, atmosphere conditions, and emergency scenarios.
+*   **Perception/Device Layer:** The physical networking appliances (traffic cameras, air-quality monitors, and BLE wearable badges).
+*   **Gateway Layer:** Ruggedized intersection switchboxes serving as edge MQTT gateways natively translating LoRaWAN/BLE signals into TCP/IP internet packets.
+*   **Network Communication Layer:** Connecting via 5G towers and localized Fiber networks navigating the encrypted unified VPC topology.
+*   **Cloud Platform Layer:** **The Part 1 OS engine (running `schedulers.py`, `bankers.py`, etc.)** acting as the central intelligence allocating core compute resources.
+*   **Application Layer:** The centralized Smart City Operations dashboard presenting real-time UI alerts and visual logic to the administrative human operator.
+
+---
+
+## 6. Threats and Mitigations (Task 14)
+
+**Cyber-Threat Modeling:**
+1.  **Data Spoofing / Sybil Attack (IoT Layer):** Hackers theoretically attempt to flood the gateway with spoofed traffic camera triggers to artificially overload the `JOBS` dataset queue.
+    *   *Mitigation:* X.509 mTLS certificates definitively enforce mutual authentication natively; the broker instantly rejects any telemetry missing a cryptographically signed hardware certificate.
+2.  **Man-in-the-Middle (MitM) Attacks (Network Layer):** Intercepting the public-safety alerts over public ISP nodes to steal or inherently corrupt the JSON payload instructions.
+    *   *Mitigation:* Absolute enforcement of TLS 1.3 cipher tunnels on all egress TCP traffic preventing active packet sniffing and payload mutation in real-time.
+3.  **Cross-Site Scripting / SQL Injection (Application Layer):** Attackers strictly targeting the Smart City dashboard login portals to execute malicious querying on the archived S3 logs.
+    *   *Mitigation:* Deploying an AWS Web Application Firewall (WAF) to deeply pre-filter and rigorously parse malformed regex sequences before backend processing occurs.
