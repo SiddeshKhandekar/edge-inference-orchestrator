@@ -15,14 +15,18 @@ This OS simulation requires **zero external dependencies** and naturally runs en
 
 To natively execute the computations, open a terminal in the repository root and selectively run the Python files:
 
-1. `python schedulers.py` 
-   - *Expectation:* Outputs detailed tracking tables for First-Come First-Serve (FCFS), Shortest Job First (SJF/SRTF), Round Robin overhead switching (Quantums 3 and 6), and Priority Starvation (With and Without Aging). Automatically logs metric benchmarks proving PRD assertion alignments exactly.
-2. `python synchronization.py` 
-   - *Expectation:* Fires up native multithreaded workers explicitly demonstrating a fundamental OS Race Condition continuously failing to arrive at a target value (85). It is then followed sequentially by a hardened Peterson's Mutual Exclusion lock algorithm explicitly guaranteeing deterministic cross-thread safety.
-3. `python bankers.py` 
-   - *Expectation:* Statically defines state conditions to natively compute the dynamic Need Matrix and execute the Banker's Algorithm limit constraint. Demonstrates successful traversal generating a Safe Sequence globally, while independently denying unsafe hypothetical resource limit breaches to aggressively avoid deadlocks.
-4. `python memory_mgmt.py` 
-   - *Expectation:* Conducts Logical-to-Physical translation mechanics explicitly enforcing rigorous Bounds Checking thresholds. You will see raw physical overrides natively intercepted for missing mapping keys triggering `PAGE FAULT` exceptions natively, as well as strict `SEGMENTATION FAULT` triggers when processing vectors exceed base limit thresholds mathematically.
+1. **`python main.py`** 
+   - *Expectation:* Acts as the global execution orchestrator. It sequentially unspools and logs deeply formatted terminal tables for all algorithms (FCFS, SJF, SRTF, Round Robin, Priority), fires up multithreaded Peterson Mutex tests, executes the Banker's deadlock safety matrices, and mathematically throws the MMU Address Translation boundaries automatically.
+2. **`python -m unittest discover tests`** 
+   - *Expectation:* Spins up the automated QA Testing Engine. It executes 7 strict unit tests rigorously validating the exact algorithmic outputs against the PRD requirements (e.g., verifying Round Robin strictly outputs 16 context switches at Q=3). Everything will mathematically output a successful `OK` natively.
+3. **`python schedulers.py`** 
+   - *Expectation:* Independently evaluates all CPU scheduling metrics. Outputs formatted tables for First-Come First-Serve (FCFS), Shortest Job First (SJF/SRTF), Round Robin context overhead tracking, and Priority CPU mapping.
+4. **`python synchronization.py`** 
+   - *Expectation:* Independently executes the OS concurrency demonstration. Validates Thread-0 / Thread-1 collision metrics and naturally restores synchronization safely using Peterson's strict boolean flags.
+5. **`python bankers.py`** 
+   - *Expectation:* Independently processes the static Edge Resource constraints. Models the Banker's safety loop to ensure deadlock-free evaluation paths for granting or natively denying hypothetical resource workloads.
+6. **`python memory_mgmt.py`** 
+   - *Expectation:* Independently computes Paging and Segmentation boundary limits natively, raising mathematically correct physical address resolutions alongside precise `PAGE FAULT` anomalies.
 
 ---
 
@@ -34,11 +38,11 @@ Based exclusively on rigid empirical measurements modeled definitively within `s
 In an Edge-IoT framework managing deterministic safety telemetry (e.g., traffic triggers), latency determines viability. Computationally simulating the jobs demonstrated that SRTF explicitly delivered the lowest absolute Average Waiting Time natively allowing high-burst telemetry limits to parse and execute instantly compared to generalized sequence modeling.
 
 **Why the other 3 Families were definitively rejected for this explicit workload:**
-1. **FCFS (First-Come, First-Served):** Highly unsuitable due to critical convoy throttling hazards across edge boundaries. Our localized engine definitively measured that FCFS resulted in a severely bloated Average Waiting Time of roughly **11.50 engine ticks** natively—which is mathematically double the drag generated under SRTF logic. Allowing deeply exhaustive jobs to stall processors categorically limits sub-second critical IoT processing limits natively.
+1. **FCFS (First-Come, First-Served):** Highly unsuitable due to critical convoy throttling hazards across edge boundaries. Our terminal engine definitively measured that FCFS resulted in a severely bloated Average Waiting Time natively reaching up to **17.12 engine ticks**—which is mathematically destructive to efficiency parameters generated under SRTF logic. Allowing deeply exhaustive jobs to stall processors completely limits sub-second critical IoT processing limits natively.
  
-2. **Round Robin (RR):** Proved drastically inefficient dynamically enforcing artificial bounds specifically for deterministic zone controllers. Our mathematical engine explicitly counted forced context rotational swapping measuring up to **17 strict switches natively** rotating exclusively under Quantum 3 conditions. A localized edge network node inherently processing battery limitations wastes continuous massive OS cyclic energy routinely ripping uncompleted payloads purely rather than letting them naturally resolve limits algorithmically. 
+2. **Round Robin (RR):** Proved drastically inefficient dynamically enforcing artificial bounds specifically for deterministic zone controllers. Our mathematical engine explicitly counted forced context rotational swapping measuring exactly **16 strict switches natively** rotating exclusively under Quantum 3 conditions. A localized edge network node inherently processing battery limitations wastes continuous massive OS cyclic energy routinely ripping uncompleted payloads rather than letting them naturally resolve limits algorithmically. 
 
-3. **Priority Scheduling:** Actively rejected natively due to massive starvation limitations exclusively on low-tier logging routines (e.g., environmental background tracking routines). Our simulator effectively proved that unequivocally devoid of embedded dynamic priority incrementing (Aging), a solitary low-tier baseline process definitively decayed for **29 strict metric ticks internally**—provoking hazardous software timeout overruns inherently.
+3. **Priority Scheduling:** Actively rejected natively due to massive starvation limitations exclusively on low-tier logging routines (e.g., environmental background tracking routines). Our simulator effectively proved that unequivocally devoid of embedded dynamic priority incrementing (Aging), a solitary low-tier baseline process definitively decayed for **33 strict metric ticks internally**—provoking hazardous software timeout overruns inherently.
 
 ---
 
